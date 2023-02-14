@@ -8,6 +8,9 @@ namespace Mission06_annazlr.Models
 {
     public class ApplicationResponse
     {
+        //Creates all the attributes in the database. Creates getters and setters.
+        //Category, Movie Title, Year, Director, and Rating are all required fields.
+        //Notes has a max length of 25 characters.
         [Key]
         [Required]
         public string Category { get; set; }

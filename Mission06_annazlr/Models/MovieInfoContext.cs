@@ -18,6 +18,7 @@ namespace Mission06_annazlr.Models
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
+            //Seeded in Data
             mb.Entity<ApplicationResponse>().HasData(
 
                 new ApplicationResponse

@@ -13,6 +13,8 @@ namespace Mission06_annazlr.Controllers
     {
 
         private readonly ILogger<HomeController> _logger;
+
+        //Allows us to add in seeded data
         private MovieInfoContext blahContext { get; set; }
 
         public HomeController(ILogger<HomeController> logger, MovieInfoContext someName)
@@ -21,21 +23,26 @@ namespace Mission06_annazlr.Controllers
             blahContext = someName;
         }
 
+        //Controller for Index Page.
         public IActionResult Index()
         {
             return View();
         }
+
+        //Controller for My Podcast page
         public IActionResult MyPodcasts()
         {
             return View();
         }
 
+        //Get for Movie Application Form Page
         [HttpGet]
         public IActionResult MovieApplication()
         {
             return View();
         }
 
+        //Post for Movie Application form Page.
         [HttpPost]
         public IActionResult MovieApplication(ApplicationResponse ar)
         {
