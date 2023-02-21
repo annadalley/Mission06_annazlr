@@ -17,7 +17,12 @@ namespace Mission06_annazlr.Migrations
 
             modelBuilder.Entity("Mission06_annazlr.Models.ApplicationResponse", b =>
                 {
+                    b.Property<int>("MovieID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Category")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Director")
@@ -35,7 +40,8 @@ namespace Mission06_annazlr.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Notes")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(25);
 
                     b.Property<string>("Rating")
                         .IsRequired()
@@ -44,13 +50,14 @@ namespace Mission06_annazlr.Migrations
                     b.Property<int>("Year")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Category");
+                    b.HasKey("MovieID");
 
                     b.ToTable("Responses");
 
                     b.HasData(
                         new
                         {
+                            MovieID = 1,
                             Category = "Action/Adventure",
                             Director = "Anthony Russo",
                             Edited = false,
@@ -62,6 +69,7 @@ namespace Mission06_annazlr.Migrations
                         },
                         new
                         {
+                            MovieID = 2,
                             Category = "Rom Com",
                             Director = "Garry Marshall",
                             Edited = false,
@@ -73,6 +81,7 @@ namespace Mission06_annazlr.Migrations
                         },
                         new
                         {
+                            MovieID = 3,
                             Category = "Comedy",
                             Director = "Jared Hess",
                             Edited = false,

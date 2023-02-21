@@ -13,6 +13,8 @@ namespace Mission06_annazlr.Models
         //Notes has a max length of 25 characters.
         [Key]
         [Required]
+        public int MovieID { get; set; }
+        [Required]
         public string Category { get; set; }
         [Required]
         public string MovieTitle { get; set; }

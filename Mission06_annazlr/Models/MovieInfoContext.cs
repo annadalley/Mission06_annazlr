@@ -23,6 +23,7 @@ namespace Mission06_annazlr.Models
 
                 new ApplicationResponse
                 {
+                    MovieID = 1,
                     Category = "Action/Adventure",
                     MovieTitle = "The Avengers",
                     Year = 2012,
@@ -36,6 +37,7 @@ namespace Mission06_annazlr.Models
                 },
                 new ApplicationResponse
                 {
+                    MovieID = 2,
                     Category = "Rom Com",
                     MovieTitle = "The Princess Diaries",
                     Year = 2001,
@@ -49,6 +51,7 @@ namespace Mission06_annazlr.Models
 
                 new ApplicationResponse
                 {
+                    MovieID = 3,
                     Category = "Comedy",
                     MovieTitle = "Nacho Libre",
                     Year = 2006,
