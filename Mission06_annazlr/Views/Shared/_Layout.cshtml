@@ -5,14 +5,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Mission06_annazlr</title>
+
+    @*implements bootstrap*@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+    @* navagation links for all pages *@
     <nav>
         <a asp-controller="Home" asp-action="Index">Home</a>
-        <a asp-controller="Home" asp-action="MyPodcasts">My Podcasts</a>
+        <br />
+        <a asp-controller="Home" asp-action="MovieList">Movie Collection List</a>
+        <br />
         <a asp-controller="Home" asp-action="MovieApplication">Enter A Movie</a>
+        <br />
+        <a asp-controller="Home" asp-action="MyPodcasts">My Podcasts</a>
     </nav>
     <div>
         @RenderBody()

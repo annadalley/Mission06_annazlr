@@ -4,13 +4,28 @@
 }
 
 @model Mission06_annazlr.Models.ApplicationResponse
+
+
 @* Movie Form *@
+
+
+
 <h1>Fill Out Movie Application</h1>
 
 <div>
     <form method="post">
-        <label asp-for="Category">Category:</label>
-        <input asp-for="Category" />
+
+        <div asp-validation-summary="All"></div>
+
+        <label asp-for="CategoryID">Category:</label>
+        <select asp-for="CategoryID">
+            <option value="">Select a Category</option>
+            @* Dynamically creates table based on database entries. *@
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryID">@c.CategoryName</option>
+            }
+        </select>
         <br />
         <label asp-for="MovieTitle">Movie Name:</label>
         <input asp-for="MovieTitle" />
@@ -43,6 +58,6 @@
         <br />
 
         <button type="submit">Add Movie</button>
-
+        <input type="hidden" asp-for="MovieID" />
     </form>
 </div>

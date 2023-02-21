@@ -15,16 +15,25 @@ namespace Mission06_annazlr.Models
         }
 
         public DbSet<ApplicationResponse> Responses { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
+            mb.Entity<Category>().HasData(
+                new Category { CategoryID=1, CategoryName="Action"},
+                new Category { CategoryID=2, CategoryName = "RomCom"},
+                new Category { CategoryID=3, CategoryName = "Comedy"},
+                new Category { CategoryID=4, CategoryName = "Drama"},
+                new Category { CategoryID=5, CategoryName = "Other"}
+            );
+
             //Seeded in Data
             mb.Entity<ApplicationResponse>().HasData(
 
                 new ApplicationResponse
                 {
                     MovieID = 1,
-                    Category = "Action/Adventure",
+                    CategoryID = 1,
                     MovieTitle = "The Avengers",
                     Year = 2012,
                     Director = "Anthony Russo",
@@ -38,7 +47,7 @@ namespace Mission06_annazlr.Models
                 new ApplicationResponse
                 {
                     MovieID = 2,
-                    Category = "Rom Com",
+                    CategoryID = 2,
                     MovieTitle = "The Princess Diaries",
                     Year = 2001,
                     Director = "Garry Marshall",
@@ -52,7 +61,7 @@ namespace Mission06_annazlr.Models
                 new ApplicationResponse
                 {
                     MovieID = 3,
-                    Category = "Comedy",
+                    CategoryID = 3,
                     MovieTitle = "Nacho Libre",
                     Year = 2006,
                     Director = "Jared Hess",

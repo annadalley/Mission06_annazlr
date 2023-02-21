@@ -15,12 +15,10 @@ namespace Mission06_annazlr.Models
         [Required]
         public int MovieID { get; set; }
         [Required]
-        public string Category { get; set; }
-        [Required]
         public string MovieTitle { get; set; }
         [Required]
         public int Year { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter the name of the Director.")]
         public string Director { get; set; }
         [Required]
         public string Rating { get; set; }
@@ -29,5 +27,8 @@ namespace Mission06_annazlr.Models
         [MaxLengthAttribute(25)]
         public string Notes { get; set; }
 
+        //Foreign Key Relationship
+        public int CategoryID { get; set; }
+        public Category Category { get; set; }
     }
 }

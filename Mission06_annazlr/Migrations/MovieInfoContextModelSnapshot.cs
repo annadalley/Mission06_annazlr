@@ -21,9 +21,8 @@ namespace Mission06_annazlr.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Director")
                         .IsRequired()
@@ -52,13 +51,15 @@ namespace Mission06_annazlr.Migrations
 
                     b.HasKey("MovieID");
 
+                    b.HasIndex("CategoryID");
+
                     b.ToTable("Responses");
 
                     b.HasData(
                         new
                         {
                             MovieID = 1,
-                            Category = "Action/Adventure",
+                            CategoryID = 1,
                             Director = "Anthony Russo",
                             Edited = false,
                             LentTo = "",
@@ -70,7 +71,7 @@ namespace Mission06_annazlr.Migrations
                         new
                         {
                             MovieID = 2,
-                            Category = "Rom Com",
+                            CategoryID = 2,
                             Director = "Garry Marshall",
                             Edited = false,
                             LentTo = "",
@@ -82,7 +83,7 @@ namespace Mission06_annazlr.Migrations
                         new
                         {
                             MovieID = 3,
-                            Category = "Comedy",
+                            CategoryID = 3,
                             Director = "Jared Hess",
                             Edited = false,
                             LentTo = "",
@@ -91,6 +92,56 @@ namespace Mission06_annazlr.Migrations
                             Rating = "PG",
                             Year = 2006
                         });
+                });
+
+            modelBuilder.Entity("Mission06_annazlr.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CategoryID");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryID = 1,
+                            CategoryName = "Action"
+                        },
+                        new
+                        {
+                            CategoryID = 2,
+                            CategoryName = "RomCom"
+                        },
+                        new
+                        {
+                            CategoryID = 3,
+                            CategoryName = "Comedy"
+                        },
+                        new
+                        {
+                            CategoryID = 4,
+                            CategoryName = "Drama"
+                        },
+                        new
+                        {
+                            CategoryID = 5,
+                            CategoryName = "Other"
+                        });
+                });
+
+            modelBuilder.Entity("Mission06_annazlr.Models.ApplicationResponse", b =>
+                {
+                    b.HasOne("Mission06_annazlr.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
